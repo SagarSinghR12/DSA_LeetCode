@@ -35,7 +35,7 @@ public:
     }
 
     void rotate(vector<int>& nums, int k) {
-        // method1(nums, k);
-        method2(nums, k);
+        method1(nums, k);
+        // method2(nums, k);
     }
 };
