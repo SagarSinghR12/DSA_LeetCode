@@ -1,27 +1,24 @@
 class Solution {
 public:
     int hIndex(vector<int>& citations) {
-        
         int n = citations.size();
-        vector<int> count(n+1, 0);
+        int start = 0;
+        int end = n-1;
+        while(start <= end){
+            int mid = start + (end-start)/2;
 
-        // Populate the count array:
-        for(int i : citations){
-            if(i >= n)
-                count[n]++;
-            else
-                count[i]++;
+            // number of papers with at least citations[mid] citations
+            int papers = n - mid;
+
+            if(citations[mid] >= papers){
+                // possible answer, try to find smaller index
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
         }
 
-        // Calculate the H-Index:
-        int total = 0;
-        for(int i=n; i>=0; i--){
-            total += count[i];
-            if(total >= i)
-                return i;
-        }
-
-        return 0;
-    
+        return n-start;
     }
 };
