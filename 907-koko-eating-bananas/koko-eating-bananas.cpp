@@ -2,9 +2,14 @@ class Solution {
 public:
     bool canKokoFinish(vector<int> &piles, int h, int k){
         long long int totalHours = 0;
-        for(int i : piles)
-            totalHours += ceil(i/(double)k);
-        
+        for(int i : piles){
+            // Integer division is faster than ceil operation 
+            totalHours += (i+k-1)/k;
+            // If the totHrs has crossed h, then there is no need to go further
+            if(totalHours > h)
+                return false;
+        }
+            
         return totalHours <= h;
     }
 
