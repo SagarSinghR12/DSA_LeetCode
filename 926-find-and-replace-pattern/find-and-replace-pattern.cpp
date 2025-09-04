@@ -34,7 +34,7 @@ public:
             //ith string 
             string currWord = words[i];
             normalise(currWord);
-            if(currWord.compare(pattern) == 0) {
+            if(currWord == pattern) {
                 ans.push_back(words[i]);
             }
         }
