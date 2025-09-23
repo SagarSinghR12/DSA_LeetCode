@@ -3,15 +3,14 @@ public:
     int numberOfSteps(int num) {
         int count = 0;
         while(num){
-            if(num&1){
+            if(num&1)
                 num--;
-                count++;
-            }   
-            else{
+            else
                 num /= 2;
-                count++;
-            }
+
+            count++;
         }
+        
         return count;
     }
 };
