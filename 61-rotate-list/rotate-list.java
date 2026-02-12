@@ -33,9 +33,6 @@ class Solution {
         newTail.next = null;
         tail.next = head;
 
-        tail = newTail;
-        head = newHead;
-
-        return head;
+        return newHead;
     }
 }
